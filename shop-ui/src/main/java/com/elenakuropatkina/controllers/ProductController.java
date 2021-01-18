@@ -1,5 +1,6 @@
 package com.elenakuropatkina.controllers;
 
+import com.elenakuropatkina.controllers.represent.ProductRepresent;
 import com.elenakuropatkina.exeptions.NotFoundException;
 import com.elenakuropatkina.repositories.BrandRepository;
 import com.elenakuropatkina.repositories.CategoryRepository;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
 
 import javax.validation.Valid;
 import java.io.IOException;

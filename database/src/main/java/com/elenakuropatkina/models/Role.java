@@ -1,15 +1,10 @@
 package com.elenakuropatkina.models;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Data
-@NoArgsConstructor
 @Table(name = "roles")
 public class Role {
 
@@ -18,14 +13,41 @@ public class Role {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "title")
+    private String title;
 
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
 
-    public Role(String name) {
-        this.name = name;
+    public Role() {
+    }
+
+    public Role(String title) {
+        this.title = title;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     @Override
@@ -34,11 +56,11 @@ public class Role {
         if (o == null || getClass() != o.getClass()) return false;
         Role role = (Role) o;
         return Objects.equals(id, role.id) &&
-                Objects.equals(name, role.name);
+                Objects.equals(title, role.title);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, title);
     }
 }

@@ -1,4 +1,4 @@
-package com.elenakuropatkina.controllers;
+package com.elenakuropatkina.controllers.represent;
 
 import com.elenakuropatkina.models.Brand;
 import com.elenakuropatkina.models.Category;

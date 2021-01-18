@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/header :: head"></head>
+
+<body class="bg-light">
+
+<div th:replace="fragments/header :: header"></div>
+
+<div class="d-flex">
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+
+    <div class="content p-4">
+        <h2 class="mb-4" th:if="${edit}" >Edit product</h2>
+        <h2 class="mb-4" th:if="${create}" >Create product</h2>
+
+        <form th:object="${product}" method="post" th:action="@{/product}">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <input th:type="hidden" th:field="*{id}">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input th:field="*{title}" type="text" class="form-control" id="title" placeholder="Enter title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input th:field="*{price}" type="password" class="form-control" id="price" placeholder="Price" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="brand">Product brand</label>
+                        <select multiple class="form-control" id="brand" th:field="*{brand}" required>
+                            <option th:each="b : ${brands}"
+                                    th:text="${b.title}"
+                                    th:value="${b.id}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Product category</label>
+                        <select multiple class="form-control" id="category" th:field="*{category}" required>
+                            <option th:each="c : ${categories}"
+                                    th:text="${c.title}"
+                                    th:value="${c.id}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPictures">Product image</label>
+                        <input th:field="*{newPictures}" type="file" class="form-control" id="newPictures"
+                               placeholder="Upload new product picture" multiple>
+                    </div>
+                </div>
+                <div class="card-footer bg-white">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+        <div class="container-fluid mb-4">
+            <div class="card-columns" style="column-count: 5">
+                <div class="card" th:each="pic : ${product.pictures}">
+                    <div class="card-header">Picture</div>
+                    <img class="card-img-bottom" th:src="@{/picture/{pictureId}(pictureId=${pic.id})}"
+                         width="40%"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:replace="fragments/footer :: scripts"></script>
+
+</body>
+</html>
