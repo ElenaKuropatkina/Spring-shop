@@ -1,6 +1,6 @@
-package com.elenakuropatkina;
+package com.elenakuropatkina.controllers;
 
-import com.elenakuropatkina.controllers.represent.ProductRepresent;
+import com.elenakuropatkina.controllers.represents.ProductRepresent;
 import com.elenakuropatkina.exeptions.NotFoundException;
 import com.elenakuropatkina.repositories.BrandRepository;
 import com.elenakuropatkina.repositories.CategoryRepository;

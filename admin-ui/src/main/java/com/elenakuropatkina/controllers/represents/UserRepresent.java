@@ -1,4 +1,4 @@
-package com.elenakuropatkina.controllers.represent;
+package com.elenakuropatkina.controllers.represents;
 
 import com.elenakuropatkina.models.Role;
 import com.elenakuropatkina.models.User;

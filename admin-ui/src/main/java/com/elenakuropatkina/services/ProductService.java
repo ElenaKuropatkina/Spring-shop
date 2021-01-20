@@ -1,6 +1,6 @@
 package com.elenakuropatkina.services;
 
-import com.elenakuropatkina.controllers.represent.ProductRepresent;
+import com.elenakuropatkina.controllers.represents.ProductRepresent;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,5 +14,5 @@ public interface ProductService {
 
     void delete(Long id);
 
-    void save(ProductRepresent product) throws IOException;
+    void save(ProductRepresent productRepresent) throws IOException;
 }

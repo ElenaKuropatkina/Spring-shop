@@ -1,6 +1,6 @@
 package com.elenakuropatkina.services;
 
-import com.elenakuropatkina.controllers.represent.UserRepresent;
+import com.elenakuropatkina.controllers.represents.UserRepresent;
 import com.elenakuropatkina.models.User;
 import com.elenakuropatkina.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

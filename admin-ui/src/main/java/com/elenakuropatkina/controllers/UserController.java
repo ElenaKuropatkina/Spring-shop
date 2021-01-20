@@ -1,6 +1,6 @@
-package com.elenakuropatkina;
+package com.elenakuropatkina.controllers;
 
-import com.elenakuropatkina.controllers.represent.UserRepresent;
+import com.elenakuropatkina.controllers.represents.UserRepresent;
 import com.elenakuropatkina.exeptions.NotFoundException;
 import com.elenakuropatkina.repositories.RoleRepository;
 import com.elenakuropatkina.services.UserService;

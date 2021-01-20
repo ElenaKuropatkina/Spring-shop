@@ -1,4 +1,4 @@
-package com.elenakuropatkina;
+package com.elenakuropatkina.controllers;
 
 import com.elenakuropatkina.models.Category;
 import com.elenakuropatkina.repositories.CategoryRepository;

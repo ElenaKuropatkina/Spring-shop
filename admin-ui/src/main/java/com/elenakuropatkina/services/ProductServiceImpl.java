@@ -1,6 +1,6 @@
 package com.elenakuropatkina.services;
 
-import com.elenakuropatkina.controllers.represent.ProductRepresent;
+import com.elenakuropatkina.controllers.represents.ProductRepresent;
 import com.elenakuropatkina.exeptions.NotFoundException;
 import com.elenakuropatkina.models.Picture;
 import com.elenakuropatkina.models.Product;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-import services.PictureService;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -17,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
 
 @Service
 public class ProductServiceImpl implements ProductService, Serializable {
@@ -31,10 +29,13 @@ public class ProductServiceImpl implements ProductService, Serializable {
     public ProductServiceImpl(ProductRepository productRepository, PictureService pictureService) {
         this.productRepository = productRepository;
         this.pictureService = pictureService;
-
     }
 
-    @Autowired
+//    @Autowired
+//    public ProductServiceImpl(ProductRepository productRepository) {
+//        this.productRepository = productRepository;
+//    }
+
 
 
     @Override
@@ -81,7 +82,7 @@ public class ProductServiceImpl implements ProductService, Serializable {
                         product
                 ));
             }
-        }
+       }
 
         productRepository.save(product);
     }

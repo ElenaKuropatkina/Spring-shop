@@ -1,6 +1,6 @@
 package com.elenakuropatkina.services;
 
-import com.elenakuropatkina.controllers.represent.UserRepresent;
+import com.elenakuropatkina.controllers.represents.UserRepresent;
 
 import java.util.List;
 import java.util.Optional;

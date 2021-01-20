@@ -55,4 +55,16 @@
         <tagDatabase tag="v-3.0"/>
     </changeSet>
 
+    <include file="v-4.0/db.changelog-20210120-151312614.xml" relativeToChangelogFile="true"/>
+
+    <changeSet id="40" author="elena">
+        <tagDatabase tag="v-4.0"/>
+    </changeSet>
+
+    <include file="v-5.0/db.changelog-20210120-154106973.xml" relativeToChangelogFile="true"/>
+
+    <changeSet id="50" author="elena">
+        <tagDatabase tag="v-5.0"/>
+    </changeSet>
+
 </databaseChangeLog>
