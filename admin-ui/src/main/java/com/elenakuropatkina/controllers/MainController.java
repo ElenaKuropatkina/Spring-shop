@@ -1,4 +1,4 @@
-package com.elenakuropatkina.controllers;
+package com.elenakuropatkina;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

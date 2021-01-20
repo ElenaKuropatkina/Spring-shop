@@ -1,4 +1,4 @@
-package com.elenakuropatkina.controllers;
+package com.elenakuropatkina;
 
 import com.elenakuropatkina.controllers.represent.ProductRepresent;
 import com.elenakuropatkina.exeptions.NotFoundException;

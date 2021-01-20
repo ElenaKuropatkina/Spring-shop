@@ -1,4 +1,4 @@
-package com.elenakuropatkina.controllers;
+package com.elenakuropatkina;
 
 import com.elenakuropatkina.controllers.represent.UserRepresent;
 import com.elenakuropatkina.exeptions.NotFoundException;
@@ -87,43 +87,4 @@ public class UserController {
     }
 
 
-//    @GetMapping("/category/create")
-//    public String adminCategoryCreatePage(Model model) {
-//        model.addAttribute("create", true);
-//        model.addAttribute("activePage", "Categories");
-//        model.addAttribute("category", new Category());
-//        return "category_form";
-//    }
-//
-//    @GetMapping("/category/{id}/edit")
-//    public String adminEditCategory(Model model, @PathVariable("id") Long id) {
-//        model.addAttribute("edit", true);
-//        model.addAttribute("activePage", "Categories");
-//        model.addAttribute("category", categoryRepository.findById(id).orElseThrow(IllegalStateException::new));
-//        return "category_form";
-//    }
-//
-//    @DeleteMapping("/category/{id}/delete")
-//    public String adminDeleteCategory(Model model, @PathVariable("id") Long id) {
-//        model.addAttribute("activePage", "Categories");
-//        categoryRepository.deleteById(id);
-//        return "redirect:/categories";
-//    }
-//
-//    @PostMapping("/category")
-//    public String adminUpsertCategory(Model model, RedirectAttributes redirectAttributes, Category category) {
-//        model.addAttribute("activePage", "Categories");
-//
-//        try {
-//            categoryRepository.save(category);
-//        } catch (Exception ex) {
-//            logger.error("Problem with creating or updating category", ex);
-//            redirectAttributes.addFlashAttribute("error", true);
-//            if (category.getId() == null) {
-//                return "redirect:/category/create";
-//            }
-//            return "redirect:/category/" + category.getId() + "/edit";
-//        }
-//        return "redirect:/categories";
-//    }
 }

@@ -1,4 +1,4 @@
-package com.elenakuropatkina.controllers;
+package com.elenakuropatkina;
 
 import com.elenakuropatkina.models.Brand;
 import com.elenakuropatkina.repositories.BrandRepository;
