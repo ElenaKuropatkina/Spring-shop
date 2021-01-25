@@ -1,6 +1,6 @@
 package com.elenakuropatkina.controllers;
 
-import com.elenakuropatkina.models.Brand;
+import com.elenakuropatkina.models.Author;
 import com.elenakuropatkina.repositories.BrandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,7 +43,7 @@ public class BrandController {
     public String createBrand(Model model) {
         model.addAttribute("create", true);
         model.addAttribute("activePage", "Brands");
-        model.addAttribute("brand", new Brand());
+        model.addAttribute("brand", new Author());
         return "brand_form";
     }
 
@@ -54,17 +54,17 @@ public class BrandController {
     }
 
     @PostMapping("/brand")
-    public String upsertBrand(Model model, RedirectAttributes redirectAttributes, Brand brand) {
+    public String upsertBrand(Model model, RedirectAttributes redirectAttributes, Author author) {
         model.addAttribute("activePage", "Brands");
 
         try {
-            brandRepository.save(brand);
+            brandRepository.save(author);
         } catch (Exception ex) {
             redirectAttributes.addFlashAttribute("error", true);
-            if (brand.getId() == null) {
+            if (author.getId() == null) {
                 return "redirect:/brand/create";
             }
-            return "redirect:/brand/" + brand.getId() + "/edit";
+            return "redirect:/brand/" + author.getId() + "/edit";
         }
         return "redirect:/brands";
     }

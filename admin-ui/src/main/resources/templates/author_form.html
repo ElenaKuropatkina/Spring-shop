@@ -12,10 +12,10 @@
     <div th:replace="fragments/sidebar :: sidebar"></div>
 
     <div class="content p-4">
-        <h2 class="mb-4" th:if="${edit}">Edit brand</h2>
-        <h2 class="mb-4" th:if="${create}">Create brand</h2>
+        <h2 class="mb-4" th:if="${edit}">Edit author</h2>
+        <h2 class="mb-4" th:if="${create}">Create author</h2>
 
-        <form th:object="${brand}" method="post" th:action="@{/brand}">
+        <form th:object="${author}" method="post" th:action="@{/author}">
             <div class="card mb-4">
                 <div class="card-body">
                     <input th:type="hidden" th:field="*{id}">
