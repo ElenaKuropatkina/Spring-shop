@@ -27,7 +27,7 @@
                         <th>Id</th>
                         <th>Title</th>
                         <th>Price</th>
-                        <th>Brand</th>
+                        <th>Author</th>
                         <th>Category</th>
                         <th class="actions">Actions</th>
                     </tr>
@@ -37,10 +37,11 @@
                         <td th:text="${p.id}"></td>
                         <td th:text="${p.title}"></td>
                         <td th:text="${p.price}"></td>
-                        <td th:text="${p.brand.title}"></td>
+                        <td th:text="${p.author.name}"></td>
                         <td th:text="${p.category.title}"></td>
                         <td>
-                            <a th:href="@{/product/{id}/edit(id=${p.id})}" class="btn btn-icon btn-pill btn-primary" data-toggle="tooltip" title="Edit">
+                            <a th:href="@{/product/{id}/edit(id=${p.id})}" class="btn btn-icon btn-pill btn-primary"
+                               data-toggle="tooltip" title="Edit">
                                 <i class="fa fa-fw fa-edit"></i>
                             </a>
                             <form th:action="@{/product/{id}/delete(id=${p.id})}" th:method="delete" class="d-inline">

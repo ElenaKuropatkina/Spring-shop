@@ -23,7 +23,7 @@ public class PictureServiceImpl implements PictureService {
         this.pictureRepository = pictureRepository;
     }
 
-       @Override
+    @Override
     public Optional<String> getPictureContentTypeById(long id) {
         return pictureRepository.findById(id)
                 .filter(pic -> pic.getPictureData().getData() != null)

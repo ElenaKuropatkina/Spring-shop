@@ -2,8 +2,8 @@ package com.elenakuropatkina.controllers.represents;
 
 import com.elenakuropatkina.models.Author;
 import com.elenakuropatkina.models.Category;
+import com.elenakuropatkina.models.Picture;
 import com.elenakuropatkina.models.Product;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -23,9 +23,9 @@ public class ProductRepresent implements Serializable {
 
     private Author author;
 
-    private List<PictureRepresent> pictures;
+    private List<Long> picturesId;
 
-    private MultipartFile[] newPictures;
+    private Long mainPictureId;
 
 
     public ProductRepresent() {
@@ -37,9 +37,10 @@ public class ProductRepresent implements Serializable {
         this.price = product.getPrice();
         this.category = product.getCategory();
         this.author = product.getAuthor();
-        this.pictures = product.getPictures().stream()
-                .map(PictureRepresent::new)
+        this.picturesId = product.getPictures().stream()
+                .map(Picture::getId)
                 .collect(Collectors.toList());
+        this.mainPictureId = picturesId.isEmpty() ? -1L : picturesId.get(0);
 
     }
 
@@ -83,20 +84,20 @@ public class ProductRepresent implements Serializable {
         this.author = author;
     }
 
-    public List<PictureRepresent> getPictures() {
-        return pictures;
+    public List<Long> getPicturesId() {
+        return picturesId;
     }
 
-    public void setPictures(List<PictureRepresent> pictures) {
-        this.pictures = pictures;
+    public void setPicturesId(List<Long> picturesId) {
+        this.picturesId = picturesId;
     }
 
-    public MultipartFile[] getNewPictures() {
-        return newPictures;
+    public Long getMainPictureId() {
+        return mainPictureId;
     }
 
-    public void setNewPictures(MultipartFile[] newPictures) {
-        this.newPictures = newPictures;
+    public void setMainPictureId(Long mainPictureId) {
+        this.mainPictureId = mainPictureId;
     }
 
     @Override

@@ -2,7 +2,7 @@ package com.elenakuropatkina.controllers;
 
 import com.elenakuropatkina.controllers.represents.ProductRepresent;
 import com.elenakuropatkina.exeptions.NotFoundException;
-import com.elenakuropatkina.repositories.BrandRepository;
+import com.elenakuropatkina.repositories.AuthorRepository;
 import com.elenakuropatkina.repositories.CategoryRepository;
 import com.elenakuropatkina.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +19,14 @@ import java.io.IOException;
 @Controller
 public class ProductController {
 
-    private final BrandRepository brandRepository;
+    private final AuthorRepository authorRepository;
     private final CategoryRepository categoryRepository;
     private final ProductService productService;
 
     @Autowired
-    public ProductController(BrandRepository brandRepository, CategoryRepository categoryRepository,
+    public ProductController(AuthorRepository authorRepository, CategoryRepository categoryRepository,
                              ProductService productService) {
-        this.brandRepository = brandRepository;
+        this.authorRepository = authorRepository;
         this.categoryRepository = categoryRepository;
         this.productService = productService;
     }
@@ -43,7 +43,7 @@ public class ProductController {
         model.addAttribute("edit", true);
         model.addAttribute("activePage", "Products");
         model.addAttribute("product", productService.findById(id).orElseThrow(() -> new NotFoundException()));
-        model.addAttribute("brands", brandRepository.findAll());
+        model.addAttribute("authors", authorRepository.findAll());
         model.addAttribute("categories", categoryRepository.findAll());
         return "product_form";
     }
@@ -53,7 +53,7 @@ public class ProductController {
         model.addAttribute("create", true);
         model.addAttribute("activePage", "Products");
         model.addAttribute("product", new ProductRepresent());
-        model.addAttribute("brands", brandRepository.findAll());
+        model.addAttribute("brands", authorRepository.findAll());
         model.addAttribute("categories", categoryRepository.findAll());
         return "product_form";
     }

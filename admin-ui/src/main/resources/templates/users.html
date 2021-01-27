@@ -40,7 +40,8 @@
                         <td th:text="${u.lastName}"></td>
                         <td th:text="${u.email}"></td>
                         <td>
-                            <a th:href="@{/user/{id}/edit(id=${u.id})}" class="btn btn-icon btn-pill btn-primary" data-toggle="tooltip" title="Edit">
+                            <a th:href="@{/user/{id}/edit(id=${u.id})}" class="btn btn-icon btn-pill btn-primary"
+                               data-toggle="tooltip" title="Edit">
                                 <i class="fa fa-fw fa-edit"></i>
                             </a>
                             <form th:action="@{/user/{id}/delete(id=${u.id})}" th:method="delete" class="d-inline">

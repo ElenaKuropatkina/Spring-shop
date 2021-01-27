@@ -7,19 +7,20 @@ import com.elenakuropatkina.repositories.PictureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Optional;
 import java.util.UUID;
 
 import static java.nio.file.Paths.get;
 
+@Service
 @ConditionalOnProperty(name = "picture.storage.type", havingValue = "file")
-public class PictureServiceImplFile implements PictureService{
+public class PictureServiceImplFile implements PictureService {
 
     @Value("${picture.storage.path}")
     private String storagePath;

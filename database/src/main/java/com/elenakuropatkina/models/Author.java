@@ -5,23 +5,23 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "brands")
-public class Brand implements Serializable {
+@Table(name = "authors")
+public class Author implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "title", unique = true, nullable = false)
-    private String title;
+    @Column(name = "name", unique = true, nullable = false)
+    private String name;
 
     @OneToMany(
-            mappedBy = "brand",
+            mappedBy = "author",
             cascade = CascadeType.ALL)
     private List<Product> products;
 
-    public Brand() {
+    public Author() {
     }
 
     public Long getId() {
@@ -32,12 +32,12 @@ public class Brand implements Serializable {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String title) {
+        this.name = name;
     }
 
     public List<Product> getProducts() {

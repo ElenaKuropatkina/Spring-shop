@@ -21,17 +21,17 @@
                     <button type="submit" class="btn btn-primary">Create new</button>
                 </form>
 
-                <table id="brands" class="table table-hover" cellspacing="0" width="100%">
+                <table id="authors" class="table table-hover" cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Title</th>
+                        <th>Name</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="b : ${brands}">
-                        <td th:text="${b.id}"></td>
-                        <td th:text="${b.title}"></td>
+                    <tr th:each="a : ${authors}">
+                        <td th:text="${a.id}"></td>
+                        <td th:text="${a.name}"></td>
                     </tr>
                     </tbody>
                 </table>
@@ -45,7 +45,7 @@
 <script th:src="@{/js/datatables.min.js}"></script>
 <script>
     $(document).ready(function () {
-        $('#brands').DataTable();
+        $('#authors').DataTable();
     });
 </script>
 

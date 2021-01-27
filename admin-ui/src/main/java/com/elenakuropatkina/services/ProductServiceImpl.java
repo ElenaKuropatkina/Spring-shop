@@ -31,13 +31,6 @@ public class ProductServiceImpl implements ProductService, Serializable {
         this.pictureService = pictureService;
     }
 
-//    @Autowired
-//    public ProductServiceImpl(ProductRepository productRepository) {
-//        this.productRepository = productRepository;
-//    }
-
-
-
     @Override
     @Transactional
     public List<ProductRepresent> findAll() {
@@ -65,7 +58,7 @@ public class ProductServiceImpl implements ProductService, Serializable {
                 .orElseThrow(NotFoundException::new) : new Product();
         product.setTitle(productRepresent.getTitle());
         product.setCategory(productRepresent.getCategory());
-        product.setBrand(productRepresent.getBrand());
+        product.setAuthor(productRepresent.getAuthor());
         product.setPrice(productRepresent.getPrice());
 
         if (productRepresent.getNewPictures() != null) {
@@ -82,7 +75,7 @@ public class ProductServiceImpl implements ProductService, Serializable {
                         product
                 ));
             }
-       }
+        }
 
         productRepository.save(product);
     }

@@ -24,7 +24,7 @@ public class Product implements Serializable {
     private Category category;
 
     @ManyToOne(optional = false)
-    private Brand brand;
+    private Author author;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<Picture> pictures;
@@ -32,11 +32,11 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    public Product(String title, BigDecimal price, Category category, Brand brand) {
+    public Product(String title, BigDecimal price, Category category, Author author) {
         this.title = title;
         this.price = price;
         this.category = category;
-        this.brand = brand;
+        this.author = author;
     }
 
     public Long getId() {
@@ -71,12 +71,12 @@ public class Product implements Serializable {
         this.category = category;
     }
 
-    public Brand getBrand() {
-        return brand;
+    public Author getAuthor() {
+        return author;
     }
 
-    public void setBrand(Brand brand) {
-        this.brand = brand;
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
     public List<Picture> getPictures() {

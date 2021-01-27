@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
-    @RequestMapping("/")
+    @RequestMapping("/admin")
     public String showHomePage(Model model) {
         model.addAttribute("activePage", "None");
         return "index";

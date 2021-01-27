@@ -19,24 +19,24 @@ import java.util.Optional;
 @RequestMapping("/picture")
 public class PictureController {
 
-        private final PictureService pictureService;
+    private final PictureService pictureService;
 
-        @Autowired
-        public PictureController(PictureService pictureService) {
-            this.pictureService = pictureService;
+    @Autowired
+    public PictureController(PictureService pictureService) {
+        this.pictureService = pictureService;
+    }
+
+    @GetMapping("/{pictureId}")
+    public void downloadProductPicture(@PathVariable("pictureId") Long pictureId, HttpServletResponse resp) throws IOException {
+
+        Optional<String> optional = pictureService.getPictureContentTypeById(pictureId);
+        if (optional.isPresent()) {
+            resp.setContentType(optional.get());
+            resp.getOutputStream().write(pictureService.getPictureDataById(pictureId).get());
+        } else {
+            resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
-
-        @GetMapping("/{pictureId}")
-        public void downloadProductPicture(@PathVariable("pictureId") Long pictureId, HttpServletResponse resp) throws IOException {
-
-            Optional<String> optional = pictureService.getPictureContentTypeById(pictureId);
-            if (optional.isPresent()) {
-                resp.setContentType(optional.get());
-                resp.getOutputStream().write(pictureService.getPictureDataById(pictureId).get());
-            } else {
-                resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            }
-        }
+    }
 
     @DeleteMapping("/{pictureId}")
     public String deletePicture(@PathVariable("pictureId") Long pictureId) {
@@ -44,6 +44,6 @@ public class PictureController {
         pictureService.removePicture(pictureId);
         return "redirect:/product/" + product.getId() + "/edit";
     }
-    }
+}
 
 

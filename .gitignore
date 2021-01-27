@@ -32,3 +32,6 @@ build/
 ### VS Code ###
 .vscode/
 /pictures/
+/shop-ui/src/main/resources/templates/images/
+/shop-ui/src/main/resources/templates/js/
+/shop-ui/src/main/resources/static/

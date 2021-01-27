@@ -63,5 +63,4 @@ public class Category implements Serializable {
         return Objects.hash(id, title);
     }
 
-
 }

@@ -14,11 +14,11 @@ public class PictureData implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "file_title", nullable = false)
+    @Column(name = "file_title")
     private String fileTitle;
 
     @Lob
-    @Type(type="org.hibernate.type.BinaryType")
+    @Type(type = "org.hibernate.type.BinaryType")
     @Column(name = "data", length = 33554430)
     private byte[] data;
 

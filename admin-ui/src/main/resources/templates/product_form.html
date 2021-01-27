@@ -12,8 +12,8 @@
     <div th:replace="fragments/sidebar :: sidebar"></div>
 
     <div class="content p-4">
-        <h2 class="mb-4" th:if="${edit}" >Edit product</h2>
-        <h2 class="mb-4" th:if="${create}" >Create product</h2>
+        <h2 class="mb-4" th:if="${edit}">Edit product</h2>
+        <h2 class="mb-4" th:if="${create}">Create product</h2>
 
         <form th:object="${product}" method="post" th:action="@{/product}" enctype="multipart/form-data">
             <div class="card mb-4">
@@ -21,18 +21,20 @@
                     <input th:type="hidden" th:field="*{id}">
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input th:field="*{title}" type="text" class="form-control" id="title" placeholder="Enter title" required>
+                        <input th:field="*{title}" type="text" class="form-control" id="title" placeholder="Enter title"
+                               required>
                     </div>
                     <div class="form-group">
                         <label for="price">Price</label>
-                        <input th:field="*{price}" type="number" class="form-control" id="price" placeholder="Price" required>
+                        <input th:field="*{price}" type="number" class="form-control" id="price" placeholder="Price"
+                               required>
                     </div>
                     <div class="form-group">
-                        <label for="brand">Product brand</label>
-                        <select multiple class="form-control" id="brand" th:field="*{brand}" required>
-                            <option th:each="b : ${brands}"
-                                    th:text="${b.title}"
-                                    th:value="${b.id}"></option>
+                        <label for="author">Book author</label>
+                        <select multiple class="form-control" id="author" th:field="*{author}" required>
+                            <option th:each="a : ${authors}"
+                                    th:text="${a.name}"
+                                    th:value="${a.id}"></option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -45,7 +47,7 @@
                     </div>
                     <div class="form-group">
                         <label for="newPictures">Product image</label>
-                        <input th:field="*{newPictures}" type="file" enctype="multipart/form-data" class="form-control" id="newPictures"
+                        <input th:field="*{newPictures}" type="file" class="form-control" id="newPictures"
                                placeholder="Upload new product picture" multiple>
                     </div>
                 </div>
@@ -57,8 +59,10 @@
         <div class="container-fluid mb-4">
             <div class="card-columns" style="column-count: 5">
                 <div class="card" th:each="pic : ${product.pictures}">
-                    <form class="card-header" th:method="delete" th:action="@{/picture/{pictureId}(pictureId=${pic.id})}" >
-                        Picture<button class="float-right"><i class="fa fa-times"></i></button>
+                    <form class="card-header" th:method="delete"
+                          th:action="@{/picture/{pictureId}(pictureId=${pic.id})}">
+                        Picture
+                        <button class="float-right"><i class="fa fa-times"></i></button>
                     </form>
                     <div class="card-header">Picture</div>
                     <img class="card-img-bottom" th:src="@{/picture/{pictureId}(pictureId=${pic.id})}"
