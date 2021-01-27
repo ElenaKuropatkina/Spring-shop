@@ -9,6 +9,7 @@
           th:href="@{/css/templatemo_style.css}"/>
 </head>
 <body>
+
 <!--  Free CSS Templates from www.templatemo.com -->
 <div id="templatemo_container">
     <div id="templatemo_menu">
@@ -34,45 +35,46 @@
             <a href="#" style="margin-left: 50px;">Read more...</a>
         </div>
 
-
     </div> <!-- end of header -->
 
     <div id="templatemo_content">
+        <table>
+            <thead>
+            <tr>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="orderItem : ${orderItems}">
+                <td><img width="100" th:src="@{/picture/{id}(id=${orderItem.productRepresent.mainPictureId})}"
+                         alt="Image">
+                </td>
+                <td>[[${orderItem.productRepresent.title}]]</td>
+                <td>-</td>
+                <td>$<span th:text="${orderItem.productRepresent.price}" th:remove="tag"></span></td>
+                <td>
+                    <input placeholder="1" id="appendedInputButtons"
+                           size="16" type="text" th:value="${orderItem.qty}">
+                    <div class="input-append">
+                        <button>-</button>
+                        <button>+</button>
+                        <button>remove</button>
+                    </div>
+                </td>
+                <td th:text="${orderItem.getTotal}">$</td>
+            </tr>
 
-        <div id="templatemo_content_left">
-            <div class="templatemo_content_left_section">
-                <h1>Authors</h1>
-                <ul th:each="a : ${authors}">
-                    <li><a th:text="${a.name}"></a></li>
-                </ul>
-            </div>
-            <div class="templatemo_content_left_section">
-                <h1>Categories</h1>
-                <ul th:each="c : ${categories}">
-                    <li><a th:text="${c.title}"></a></li>
-                </ul>
-            </div>
-
-
-        </div> <!-- end of content left -->
-
-        <div id="templatemo_content_right">
-
-            <div th:each="p : ${products}" class="templatemo_product_box">
-                <h1><a th:text="${p.title}"/></h1>
-                <img th:src="@{/picture/{id}(id=${p.mainPictureId})}" alt=" " width="100"/>
-                <div class="product_info">
-                    <p>Aliquam a dui, ac magna quis est eleifend dictum.</p>
-                    <h3><a th:text="'$' + ${p.price}"/></h3>
-                    <div class="buy_now_button"><a th:href="@{/cart}">Buy Now</a></div>
-                    <div class="detail_button"><a th:href="@{/product_page/{id}(id=${p.id})}">Detail</a></div>
-                </div>
-                <div class="cleaner">&nbsp;</div>
-            </div>
-
-            <div class="cleaner_with_height">&nbsp;</div>
-
-        </div> <!-- end of content right -->
+            <tr>
+                <td colspan="6" class="alignR">Total products:</td>
+                <td th:text="${subTotal}" class="label label-primary">$</td>
+            </tr>
+            </tbody>
+        </table>
 
         <div class="cleaner_with_height">&nbsp;</div>
     </div> <!-- end of content -->
