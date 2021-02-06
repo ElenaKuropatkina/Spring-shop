@@ -1,8 +1,7 @@
-package com.elenakuropatkina.services.models;
+package com.elenakuropatkina.services.model;
 
 import com.elenakuropatkina.controllers.represents.ProductRepresent;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -16,10 +15,10 @@ public class OrderItem implements Serializable {
 
     private Integer qty;
 
-
     public OrderItem(ProductRepresent productRepresent) {
         this.productId = productRepresent.getId();
         this.productRepresent = productRepresent;
+
     }
 
     public OrderItem() {
@@ -48,6 +47,7 @@ public class OrderItem implements Serializable {
     public void setQty(Integer qty) {
         this.qty = qty;
     }
+
 
     @JsonIgnore
     public BigDecimal getTotal() {

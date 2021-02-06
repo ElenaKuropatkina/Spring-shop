@@ -54,39 +54,41 @@
                 <td><img width="100" th:src="@{/picture/{id}(id=${orderItem.productRepresent.mainPictureId})}"
                          alt="Image">
                 </td>
-                <td>[[${orderItem.productRepresent.title}]]</td>
+                <td th:text="${orderItem.productRepresent.title}"></td>
                 <td>-</td>
-                <td>$<span th:text="${orderItem.productRepresent.price}" th:remove="tag"></span></td>
+                <td th:text="'$' + ${orderItem.productRepresent.price}"></td>
                 <td>
                     <input placeholder="1" id="appendedInputButtons"
                            size="16" type="text" th:value="${orderItem.qty}">
                     <div class="input-append">
-                        <button>-</button>
-                        <button>+</button>
-                        <button>remove</button>
+                        <button class="btn btn-xs" type="button">-</button>
+                        <button class="btn btn-xs" type="button">+</button>
+                        <button class="btn btn-xs btn-danger" type="button">Remove</button>
                     </div>
                 </td>
-                <td th:text="${orderItem.getTotal}">$</td>
-            </tr>
+                <td th:text="'$' + ${orderItem.getTotal()}">$100</td>
+    </tr>
 
-            <tr>
-                <td colspan="6" class="alignR">Total products:</td>
-                <td th:text="${subTotal}" class="label label-primary">$</td>
-            </tr>
-            </tbody>
-        </table>
+    <tr>
+        <td colspan="6" class="alignR">Total products:</td>
+        <td th:text="'$' + ${subTotal}" class="label label-primary"></td>
+    </tr>
+    </tbody>
+    </table>
 
-        <div class="cleaner_with_height">&nbsp;</div>
-    </div> <!-- end of content -->
 
-    <div id="templatemo_footer">
 
-        <a th:href="@{/products}">Home</a> | <a href="#">Search</a> | <a th:href="@{/products}">Books</a> | <a
-            href="#">New Releases</a> | <a href="#">FAQs</a> | <a href="#">Contact Us</a><br/>
-        Copyright © 2021 <a href="#"><strong>ElenaKuropatkina</strong></a>
-        <!-- Credit: www.templatemo.com -->    </div>
-    <!-- end of footer -->
-    <!--  Free CSS Template www.templatemo.com -->
+    <div class="cleaner_with_height">&nbsp;</div>
+</div> <!-- end of content -->
+
+<div id="templatemo_footer">
+
+    <a th:href="@{/products}">Home</a> | <a href="#">Search</a> | <a th:href="@{/products}">Books</a> | <a
+        href="#">New Releases</a> | <a href="#">FAQs</a> | <a href="#">Contact Us</a><br/>
+    Copyright © 2021 <a href="#"><strong>ElenaKuropatkina</strong></a>
+    <!-- Credit: www.templatemo.com -->    </div>
+<!-- end of footer -->
+<!--  Free CSS Template www.templatemo.com -->
 </div> <!-- end of container -->
 <!-- templatemo 086 book store -->
 <!--

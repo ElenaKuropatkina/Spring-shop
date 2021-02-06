@@ -64,7 +64,11 @@
                 <div class="product_info">
                     <p>Aliquam a dui, ac magna quis est eleifend dictum.</p>
                     <h3><a th:text="'$' + ${p.price}"/></h3>
-                    <div class="buy_now_button"><a th:href="@{/cart}">Buy Now</a></div>
+                    <form th:action="@{/cart}" method="post">
+                        <input type="hidden" name="qty" value="1"/>
+                        <input type="hidden" name="productId" th:value="${p.id}">
+                        <button th:class="buy_now_button" type="submit" title="add to cart">Buy Now</button>
+                    </form>
                     <div class="detail_button"><a th:href="@{/product_page/{id}(id=${p.id})}">Detail</a></div>
                 </div>
                 <div class="cleaner">&nbsp;</div>
