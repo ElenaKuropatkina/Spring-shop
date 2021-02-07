@@ -7,6 +7,8 @@
     <meta name="description" content=""/>
     <link href="static/css/templatemo_style.css" rel="stylesheet" type="text/css"
           th:href="@{/css/templatemo_style.css}"/>
+    <link href="static/css/chat.css" rel="stylesheet" type="text/css"
+          th:href="@{/css/chat.css}"/>
 </head>
 <body>
 <!--  Free CSS Templates from www.templatemo.com -->
@@ -60,11 +62,12 @@
 
             <div th:each="p : ${products}" class="templatemo_product_box">
                 <h1><a th:text="${p.title}"/></h1>
-                <img th:src="@{{pictureAppUrl}/picture/{id}(id=${p.mainPictureId}, pictureAppUrl=${pictureAppUrl})}" alt=" " width="100"/>
+                <img th:src="@{{pictureAppUrl}/picture/{id}(id=${p.mainPictureId}, pictureAppUrl=${pictureAppUrl})}"
+                     alt=" " width="100"/>
                 <div class="product_info">
                     <p>Aliquam a dui, ac magna quis est eleifend dictum.</p>
                     <h3><a th:text="'$' + ${p.price}"/></h3>
-                    <form th:action="@{/cart}" method="post">
+                    <form class="buy_now" th:action="@{/cart}" method="post">
                         <input type="hidden" name="qty" value="1"/>
                         <input type="hidden" name="productId" th:value="${p.id}">
                         <button th:class="buy_now_button" type="submit" title="add to cart">Buy Now</button>
@@ -82,6 +85,20 @@
     </div> <!-- end of content -->
 
     <div id="templatemo_footer">
+        <th:block th:fragment="scripts">
+            <div th:include="fragments/chat :: chat"/>
+
+            <!-- Placed at the end of the document so the pages load faster -->
+            <script th:src="@{/webjars/jquery/1.12.4/jquery.js}"></script>
+            <script th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
+            <script th:src="@{/webjars/jquery-easing/1.3/jquery.easing.js}"></script>
+            <script th:src="@{/webjars/jquery.scrollTo/1.4.14/jquery.scrollTo.js}"></script>
+
+
+            <script th:src="@{/webjars/sockjs-client/1.0.2/sockjs.min.js}"></script>
+            <script th:src="@{/webjars/stomp-websocket/2.3.3/stomp.min.js}"></script>
+            <script th:src="@{/js/chat.js}"></script>
+        </th:block>
 
         <a th:href="@{/products}">Home</a> | <a href="#">Search</a> | <a th:href="@{/products}">Books</a> | <a
             href="#">New Releases</a> | <a href="#">FAQs</a> | <a href="#">Contact Us</a><br/>

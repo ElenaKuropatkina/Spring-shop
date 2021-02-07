@@ -12,7 +12,7 @@
     <div th:replace="fragments/sidebar :: sidebar"></div>
 
     <div class="content p-4">
-        <h2 class="mb-4">Brands list</h2>
+        <h2 class="mb-4">Authors list</h2>
 
         <div class="card mb-4">
 
@@ -26,12 +26,24 @@
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="a : ${authors}">
                         <td th:text="${a.id}"></td>
                         <td th:text="${a.name}"></td>
+                        <td>
+                            <a th:href="@{/author/{id}/edit(id=${a.id})}" class="btn btn-icon btn-pill btn-primary"
+                               data-toggle="tooltip" title="Edit">
+                                <i class="fa fa-fw fa-edit"></i>
+                            </a>
+                            <form th:action="@{/author/{id}/delete(id=${a.id})}" th:method="delete" class="d-inline">
+                                <button class="btn btn-icon btn-pill btn-danger" data-toggle="tooltip" title="Delete">
+                                    <i class="fa fa-fw fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                     </tbody>
                 </table>

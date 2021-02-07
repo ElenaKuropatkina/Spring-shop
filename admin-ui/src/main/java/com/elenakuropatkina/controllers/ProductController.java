@@ -53,7 +53,7 @@ public class ProductController {
         model.addAttribute("create", true);
         model.addAttribute("activePage", "Products");
         model.addAttribute("product", new ProductRepresent());
-        model.addAttribute("brands", authorRepository.findAll());
+        model.addAttribute("authors", authorRepository.findAll());
         model.addAttribute("categories", categoryRepository.findAll());
         return "product_form";
     }

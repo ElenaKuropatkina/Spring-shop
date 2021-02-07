@@ -12,7 +12,7 @@
             <i class="fa fa-fw fa-link"></i> Roles</a></li>
         <li th:classappend="${activePage == 'Authors'} ? active"><a th:href="@{/authors}">
             <i class="fa fa-fw fa-link"></i> Authors</a></li>
-        <li th:classappend="${activePage == 'Categories'} ? active"><a th:href="@{/categories}">
+        <li id="categories" th:classappend="${activePage == 'Categories'} ? active"><a th:href="@{/categories}">
             <i class="fa fa-fw fa-link"></i> Categories</a></li>
         <li th:classappend="${activePage == 'Products'} ? active"><a th:href="@{/products}">
             <i class="fa fa-fw fa-link"></i> Products</a></li>

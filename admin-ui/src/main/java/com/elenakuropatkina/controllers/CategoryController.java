@@ -46,7 +46,7 @@ public class CategoryController {
     }
 
     @DeleteMapping("/category/{id}/delete")
-    public String deleteBrand(Model model, @PathVariable("id") Long id) {
+    public String deleteCategory(Model model, @PathVariable("id") Long id) {
         categoryRepository.deleteById(id);
         return "redirect:/categories";
     }

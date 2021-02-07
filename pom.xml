@@ -30,6 +30,7 @@
         <module>shop-ui</module>
         <module>admin-ui</module>
         <module>spring-cloud-config</module>
+        <module>admin-ui-test</module>
     </modules>
 
     <dependencyManagement>
