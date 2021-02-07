@@ -1,9 +1,6 @@
 package com.elenakuropatkina.services;
 
 import com.elenakuropatkina.controllers.represents.ProductRepresent;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
@@ -20,22 +17,17 @@ import javax.annotation.PostConstruct;
 @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class CartServiceImpl implements CartService {
 
-    private static final long serialVersionUID = -9025621122549454991L;
+    //private static final long serialVersionUID = -9025621122549454991L;
 
     private Map<OrderItem, Integer> orderItems;
 
-    private BigDecimal totalCost;
-
-    @PostConstruct
-    public void init() {
-            }
+    //private BigDecimal totalCost;
 
     public CartServiceImpl() {
         this.orderItems = new HashMap<>();
     }
 
-    @JsonCreator
-    public CartServiceImpl(@JsonProperty("orderItems") List<OrderItem> orderItems) {
+    public CartServiceImpl(List<OrderItem> orderItems) {
         this.orderItems = orderItems.stream().collect(Collectors.toMap(oi -> oi, OrderItem::getQty));
     }
 
@@ -69,7 +61,6 @@ public class CartServiceImpl implements CartService {
         return new ArrayList<>(orderItems.keySet());
     }
 
-    @JsonIgnore
     @Override
     public BigDecimal getSubTotal() {
         orderItems.forEach(OrderItem::setQty);

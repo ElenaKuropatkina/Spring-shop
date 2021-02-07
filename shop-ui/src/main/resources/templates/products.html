@@ -60,7 +60,7 @@
 
             <div th:each="p : ${products}" class="templatemo_product_box">
                 <h1><a th:text="${p.title}"/></h1>
-                <img th:src="@{/picture/{id}(id=${p.mainPictureId})}" alt=" " width="100"/>
+                <img th:src="@{{pictureAppUrl}/picture/{id}(id=${p.mainPictureId}, pictureAppUrl=${pictureAppUrl})}" alt=" " width="100"/>
                 <div class="product_info">
                     <p>Aliquam a dui, ac magna quis est eleifend dictum.</p>
                     <h3><a th:text="'$' + ${p.price}"/></h3>

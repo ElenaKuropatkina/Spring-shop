@@ -59,7 +59,8 @@
 
             <h1>[[${product.title}]]</h1>
             <h2>$[[${product.price}]]</h2>
-            <div class="image_panel"><img th:src="@{/picture/{id}(id=${product.mainPictureId})}" alt=" " th:width="300">
+            <div class="image_panel">
+            <img th:src="@{{pictureAppUrl}/picture/{id}(id=${product.mainPictureId}, pictureAppUrl=${pictureAppUrl})}" alt=" " th:width="300">
             </div>
             <ul>
                 <li>By <a href="#">[[${product.author.name}]]</a></li>

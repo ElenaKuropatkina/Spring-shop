@@ -51,7 +51,7 @@
             </thead>
             <tbody>
             <tr th:each="orderItem : ${orderItems}">
-                <td><img width="100" th:src="@{/picture/{id}(id=${orderItem.productRepresent.mainPictureId})}"
+                <td><img width="100" th:src="@{{pictureAppUrl}/picture/{id}(id=${orderItem.productRepresent.mainPictureId}, pictureAppUrl=${pictureAppUrl})}"
                          alt="Image">
                 </td>
                 <td th:text="${orderItem.productRepresent.title}"></td>

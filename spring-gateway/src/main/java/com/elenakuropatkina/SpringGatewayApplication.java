@@ -1,16 +1,15 @@
 package com.elenakuropatkina;
 
-import com.netflix.discovery.EurekaNamespace;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @EnableEurekaClient
 @SpringBootApplication
-public class ShopUiApplication {
+public class SpringGatewayApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(ShopUiApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(SpringGatewayApplication.class, args);
+	}
 
 }

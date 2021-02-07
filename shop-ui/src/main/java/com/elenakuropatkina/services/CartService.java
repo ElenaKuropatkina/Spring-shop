@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 
-public interface CartService extends Serializable {
+public interface CartService {
 
     void addQty(ProductRepresent productRepresent, int qty);
 
